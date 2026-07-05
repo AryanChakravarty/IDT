@@ -1,0 +1,572 @@
+compliance_rules:
+  # Part 1: Notes to Accounts/Schedules
+  foreign_currency_transactions:
+    name: "Foreign Currency Transactions"
+    part: "Notes to Accounts/Schedules"
+    sub_part: "Foreign currency transactions"
+    description: "Foreign exchange differences related to sales and import of services"
+    verification_points:
+      - "Foreign exchange differences related to sales are reported under Table 5N of GSTR-9C"
+      - "In case of foreign payments related to import of services, verify applicability of Reverse Charge Mechanism (RCM)"
+      - "If RCM is applicable, ensure that the tax has been duly paid"
+    keywords: ["foreign currency", "foreign exchange", "GSTR-9C", "RCM", "import services"]
+    verification_prompt: |
+      Analyze the financial statements for:
+      1. Foreign currency transactions and their treatment in GSTR-9C Table 5N
+      2. Import of services and RCM applicability
+      3. Verification of RCM tax payments where applicable
+      Provide specific citations and page references from the document.
+
+  # Part 2: Related Party Transactions
+  related_party_transactions:
+    name: "Related Party Transactions"
+    part: "Related Party Transactions"
+    sub_part: "Schedule"
+    description: "Verification of related party transaction values and deemed supplies"
+    verification_points:
+      - "Verify whether the value of supply in related party transactions has been correctly determined in accordance with Rule 28 of the CGST Rules"
+      - "Supplies received from related party from outside the taxable territory even not for consideration should be classified as deemed supply as per para 2 of schedule 1"
+    keywords: ["related party", "Rule 28", "CGST Rules", "deemed supply", "schedule 1"]
+    verification_prompt: |
+      Check for:
+      1. Related party transactions and their valuation under Rule 28
+      2. Deemed supplies from related parties outside taxable territory
+      3. Compliance with CGST Rules and Schedule 1 requirements
+      Cite specific sections and provide page references.
+
+  # Part 3: Directors Report - Business Expansion
+  business_expansion_cwip:
+    name: "Business Expansion - CWIP ITC"
+    part: "Directors Report"
+    sub_part: "Business expansion"
+    description: "ITC eligibility verification for capital work in progress"
+    verification_points:
+      - "To check the ITC eligibility of the amounts captured under capital work in progress (CWIP)"
+    keywords: ["business expansion", "CWIP", "capital work in progress", "ITC eligibility"]
+    verification_prompt: |
+      Analyze:
+      1. Business expansion activities mentioned in Directors Report
+      2. Capital work in progress amounts and their ITC eligibility
+      3. Compliance with ITC eligibility criteria for CWIP
+      Reference specific sections from Directors Report and financial statements.
+
+  # Part 4: Directors Report - Merger/Demerger/Amalgamation
+  merger_demerger_itc:
+    name: "Merger/Demerger/Amalgamation ITC"
+    part: "Directors Report"
+    sub_part: "Merger/De-merger/Amalgamation"
+    description: "ITC transfer verification through FORM ITC-02"
+    verification_points:
+      - "If any event of merger, demerger, or amalgamation has occurred and ITC was transferred from one entity to another through the filing of FORM ITC-02, such ITC should be reported in Table 6M of GSTR-9"
+      - "Whether GSTR-10 was filed"
+    keywords: ["merger", "demerger", "amalgamation", "ITC-02", "GSTR-9", "GSTR-10"]
+    verification_prompt: |
+      Check for:
+      1. Merger, demerger, or amalgamation events
+      2. ITC transfer through FORM ITC-02
+      3. Reporting in GSTR-9 Table 6M
+      4. GSTR-10 filing compliance
+      Provide relevant document references and page numbers.
+
+  # Part 5: Directors Report - Remuneration to Directors
+  director_remuneration_rcm:
+    name: "Director Remuneration RCM"
+    part: "Directors Report"
+    sub_part: "Remuneration to directors"
+    description: "RCM applicability verification on director's fees"
+    verification_points:
+      - "RCM is applicable on director's fees. Therefore, we will verify whether the RCM paid on the director's fees or not"
+    keywords: ["director remuneration", "director fees", "RCM", "reverse charge"]
+    verification_prompt: |
+      Analyze:
+      1. Director remuneration details from Directors Report
+      2. RCM applicability on director fees
+      3. Verification of RCM payments
+      Cite specific sections from Directors Report and financial statements.
+
+  # Part 6: Trial Balance
+  trial_balance_analysis:
+    name: "Trial Balance Analysis"
+    part: "Trial Balance"
+    sub_part: ""
+    description: "Familiarization with grouping of accounts and unusual ledger accounts"
+    verification_points:
+      - "Familiarization with Grouping of accounts"
+      - "Unusual ledger accounts like Loss of inputs or unusual income accounts may also be noticed in the Trial Balance"
+      - "However, such accounts will not be reflected in the Profit & Loss Accounts as these accounts are adjusted against other accounts"
+      - "Such account may be selected for finding of exact nature and detailed scrutiny"
+    keywords: ["trial balance", "unusual accounts", "loss of inputs", "income accounts", "grouping"]
+    verification_prompt: |
+      Review:
+      1. Trial balance account groupings
+      2. Unusual ledger accounts (loss of inputs, unusual income)
+      3. Accounts not reflected in P&L but adjusted elsewhere
+      4. Detailed scrutiny requirements for such accounts
+      Reference specific account details and page numbers.
+
+  # Part 7: Audited Financials - Government Grants
+  government_grants:
+    name: "Government Grants GST Implications"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Government Grants"
+    description: "GST implications for government grants from NGOs/NPOs vs Government"
+    verification_points:
+      - "Received from NGO's/NPO's liable to GST. However, Exempt in case of received from Government"
+    keywords: ["government grants", "NGO", "NPO", "GST liable", "exempt"]
+    verification_prompt: |
+      Analyze:
+      1. Government grants received and their sources
+      2. GST implications for grants from NGOs/NPOs
+      3. Exemption for grants from Government
+      Cite specific sections and provide page references.
+
+  # Part 8: Audited Financials - Sundry Creditors
+  sundry_creditors_itc:
+    name: "Sundry Creditors ITC Reversal"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Sundry creditors"
+    description: "ITC reversal verification for payments not made within 180 days"
+    verification_points:
+      - "As per Rule 37, if the payment is not made within 180 days, the ITC should be reversed"
+      - "Have we verified whether the ITC has been reversed for payments not made within 180 days?"
+    keywords: ["sundry creditors", "Rule 37", "180 days", "ITC reversal", "payment"]
+    verification_prompt: |
+      Check:
+      1. Sundry creditors aging analysis
+      2. Payments not made within 180 days
+      3. ITC reversal compliance under Rule 37
+      Provide specific references and calculations.
+
+  # Part 9: Audited Financials - Advance Received
+  advance_received_gst:
+    name: "Advance Received GST Applicability"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Advance received from Customer"
+    description: "GST applicability on advance against services"
+    verification_points:
+      - "GST applicable in case advance against services only"
+    keywords: ["advance received", "customer advance", "services", "GST applicable"]
+    verification_prompt: |
+      Analyze:
+      1. Advance received from customers
+      2. Nature of advances (goods vs services)
+      3. GST applicability on service advances
+      Cite specific sections and provide page references.
+
+  # Part 10: Audited Financials - Fixed Assets
+  fixed_assets_itc:
+    name: "Fixed Assets ITC and Reversals"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Fixed Assets (Non-current Assets)"
+    description: "Fixed assets schedule analysis and ITC reversals"
+    verification_points:
+      - "Fixed assets schedule may show additions and deductions to the fixed assets during the year"
+      - "For the deductions made during the year, verification may be made as to whether appropriate GST has been paid"
+      - "ITC reversal verification w.r.t. to deletion of assets [Section 18(6)]"
+      - "Check Rule 43- ITC reversal w.r.t. capital Goods"
+    keywords: ["fixed assets", "additions", "deductions", "GST paid", "Section 18(6)", "Rule 43", "capital goods"]
+    verification_prompt: |
+      Check:
+      1. Fixed assets schedule movements (additions/deductions)
+      2. GST payment verification for asset deductions
+      3. ITC reversals under Section 18(6) for asset deletions
+      4. Rule 43 compliance for capital goods ITC reversals
+      Provide specific references and calculations.
+
+  # Part 11: Audited Financials - Inventories
+  inventories_itc:
+    name: "Inventories ITC Reversal"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Inventories"
+    description: "ITC reversal on written off/loss of raw materials"
+    verification_points:
+      - "Reversal of ITC on written off/loss of RM (Abnormal Loss)"
+    keywords: ["inventories", "raw materials", "written off", "abnormal loss", "ITC reversal"]
+    verification_prompt: |
+      Analyze:
+      1. Inventory write-offs and losses
+      2. Abnormal loss identification
+      3. ITC reversal requirements for written off/lost raw materials
+      Cite specific sections and provide calculations.
+
+  # Part 12: Audited Financials - Contingent Liability
+  contingent_liability_gst:
+    name: "Contingent Liability GST Implications"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Contingent liability"
+    description: "GST implications for corporate guarantees and RPT transactions"
+    verification_points:
+      - "GST implication for Corporate Guarantee / transaction with RPT"
+    keywords: ["contingent liability", "corporate guarantee", "RPT", "GST implications"]
+    verification_prompt: |
+      Check for:
+      1. Corporate guarantees provided
+      2. Related party transactions with contingent liabilities
+      3. GST implications for such transactions
+      Provide specific references and page numbers.
+
+  # Part 13: P&L - Revenue from Operations
+  revenue_exempt_supplies:
+    name: "Revenue from Operations - Exempt Supplies"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Revenue from operation"
+    description: "Exempt supplies and Schedule III items impact on ITC"
+    verification_points:
+      - "Checking Exempt supplies/Schedule III items- ITC reversal impact"
+    keywords: ["revenue from operations", "exempt supplies", "Schedule III", "ITC reversal"]
+    verification_prompt: |
+      Analyze:
+      1. Revenue from operations breakdown
+      2. Exempt supplies identification
+      3. Schedule III items and their impact
+      4. ITC reversal implications
+      Cite specific sections and provide calculations.
+
+  # Part 14: P&L - Other Income
+  other_income_gst:
+    name: "Other Income GST Implications"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Other Income"
+    description: "Non-GST supplies and various other income types"
+    verification_points:
+      - "Non-GST supplies/Schedule III supplies for GSTR-9 disclosure"
+      - "Other incomes like scrap, insurance claims receipt, profit on sale of fixed assets, commission received, erection and commissioning, freight and insurance recovered etc. may be examined in detail to find out the exact nature of such incomes and whether these have any bearing on the valuation or whether these are liable for GST"
+      - "If an insurance claim is received for an asset due to its total loss, ITC reversal is required. We have verified whether the ITC has been reversed in such cases"
+    keywords: ["other income", "non-GST supplies", "scrap", "insurance claims", "commission", "erection", "freight", "ITC reversal"]
+    verification_prompt: |
+      Analyze:
+      1. Other income breakdown and nature
+      2. Non-GST supplies identification
+      3. GST liability for various income types
+      4. ITC reversal for insurance claims on total loss assets
+      Provide specific references and calculations.
+
+  # Part 15: P&L - Employee Benefits
+  employee_benefits_gst:
+    name: "Employee Benefits GST Implications"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Employee benefits expenses"
+    description: "GST implications on employee benefits and ITC eligibility"
+    verification_points:
+      - "Sch III- e.g. GST implication on EXPAT salary"
+      - "ITC eligibility to be verified (e.g. insurances, necessity good water, medicine, gifts, recreational/business trip, etc.)"
+    keywords: ["employee benefits", "EXPAT salary", "Schedule III", "ITC eligibility", "insurance", "gifts", "recreational"]
+    verification_prompt: |
+      Check:
+      1. Employee benefits expenses breakdown
+      2. EXPAT salary GST implications
+      3. ITC eligibility for various employee benefits
+      4. Schedule III compliance
+      Cite specific sections and provide page references.
+
+  # Part 16: P&L - Conveyance
+  conveyance_gst:
+    name: "Conveyance GST and RCM"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Conveyance"
+    description: "Statutory obligation ITC and GTA/Rent-a-cab RCM"
+    verification_points:
+      - "Statutory obligation- ITC allowed"
+      - "GTA/ Rent-a-cab-RCM liability"
+    keywords: ["conveyance", "statutory obligation", "ITC allowed", "GTA", "rent-a-cab", "RCM"]
+    verification_prompt: |
+      Analyze:
+      1. Conveyance expenses breakdown
+      2. Statutory obligation ITC eligibility
+      3. GTA and rent-a-cab RCM liability
+      Provide specific references and calculations.
+
+  # Part 17: P&L - Rent
+  rent_rcm:
+    name: "Rent RCM Applicability"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Rent"
+    description: "RCM applicability verification for rent payments, including GST treatment for all rental/lease scenarios as per GST law."
+    verification_points:
+      - "Check for RCM applicability Scenarios attached for Checking RCM applicability"
+      - "Verify GST treatment for all rental/lease income and expenses as per the following scenarios:"
+      - "  - Renting Commercial Property: 18% GST, payable by Landlord"
+      - "  - Renting Residential Property for Residential Use: No GST (Exempt)"
+      - "  - Renting Residential Property to Registered Person for Business: GST under RCM, payable by Tenant"
+      - "  - Renting by Unregistered Landlord to Registered Tenant: GST under RCM, payable by Tenant"
+      - "  - Long-term Lease (30+ years) for Industrial Infrastructure: Exempt"
+    keywords: ["rent", "RCM", "reverse charge", "applicability", "property", "lease", "rental income", "GST on rent", "GST on lease"]
+    verification_prompt: |
+      Check for:
+      1. Rent expenses and their nature
+      2. RCM applicability scenarios
+      3. GST treatment for all rental/lease income and expenses as per the following table:
+         | Scenario                                                        | GST Applicability         | Who Pays GST?   |
+         |---------------------------------------------------------------|--------------------------|-----------------|
+         | Renting Commercial Property                                   | Yes, 18% GST             | Landlord        |
+         | Renting Residential Property for Residential Use               | No GST (Exempt)          | Not Applicable  |
+         | Renting Residential Property to a Registered Person for Business | Yes, under RCM           | Tenant          |
+         | Renting by Unregistered Landlord to a Registered Tenant        | Yes, under RCM           | Tenant          |
+         | Long-term Lease (30+ years) for Industrial Infrastructure      | Exempt                   | Not Applicable  |
+      4. Compliance with RCM requirements
+      5. If any rental/lease income or expense is present, verify GST treatment as per the above table and cite specific sections and provide page references.
+
+  # Part 18: P&L - Repairs & Maintenance
+  repairs_maintenance_itc:
+    name: "Repairs & Maintenance ITC Reversal"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Repairs & Maintenance"
+    description: "ITC reversal verification for motor vehicle repairs"
+    verification_points:
+      - "Please verify whether any Input Tax Credit (ITC) was availed on the expenditure incurred on repair of Motor Vehicle. If ITC was claimed, it may need to be reversed, as per sec 17(5) of GST"
+    keywords: ["repairs", "maintenance", "motor vehicle", "ITC reversal", "Section 17(5)"]
+    verification_prompt: |
+      Verify:
+      1. Repairs and maintenance expenses
+      2. Motor vehicle repair costs
+      3. ITC claims on motor vehicle repairs
+      4. Section 17(5) compliance for ITC reversals
+      Provide specific references and calculations.
+
+  # Part 19: P&L - Professional Fees
+  professional_fees_itc_rcm:
+    name: "Professional Fees ITC and RCM"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Professional Fees"
+    description: "ITC eligibility and RCM applicability for professional services"
+    verification_points:
+      - "ITC eligibility"
+      - "Check RCM applicability (e.g. Foreign professional services procured)"
+    keywords: ["professional fees", "ITC eligibility", "RCM", "foreign services"]
+    verification_prompt: |
+      Analyze:
+      1. Professional fees expenses
+      2. ITC eligibility verification
+      3. RCM applicability for foreign professional services
+      Cite specific sections and provide page references.
+
+  # Part 20: P&L - Legal Fees
+  legal_fees_rcm:
+    name: "Legal Fees RCM"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Legal Fees"
+    description: "RCM applicability verification on legal fees"
+    verification_points:
+      - "RCM is applicable on Legal fees. Therefore, we will verify whether the RCM has been paid on the Legal fees or not"
+    keywords: ["legal fees", "RCM", "reverse charge"]
+    verification_prompt: |
+      Check:
+      1. Legal fees expenses
+      2. RCM applicability on legal fees
+      3. Verification of RCM payments
+      Provide specific references and calculations.
+
+  # Part 21: P&L - CSR
+  csr_itc:
+    name: "CSR ITC Reversal"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "CSR"
+    description: "ITC reversal verification for CSR activities"
+    verification_points:
+      - "Please verify whether any Input Tax Credit (ITC) was availed on the expenditure incurred for CSR activities. If ITC was claimed, it may need to be reversed, as per the provisions of the GST. (as per 17(5))"
+    keywords: ["CSR", "corporate social responsibility", "ITC reversal", "Section 17(5)"]
+    verification_prompt: |
+      Verify:
+      1. CSR expenses and activities
+      2. ITC claims on CSR expenditures
+      3. Section 17(5) compliance for ITC reversals
+      Provide specific references and calculations.
+
+  # Part 22: P&L - Profit/Loss on Sale of Assets
+  profit_loss_assets:
+    name: "Profit/Loss on Sale of Assets"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Profit/ loss on sale of assets"
+    description: "Section 18(6) applicability verification"
+    verification_points:
+      - "Check 18(6) applicability (covered above)"
+    keywords: ["profit on sale", "loss on sale", "assets", "Section 18(6)"]
+    verification_prompt: |
+      Check for:
+      1. Profit/loss on sale of assets
+      2. Section 18(6) applicability
+      3. ITC reversal requirements
+      Cite specific sections and provide page references.
+
+  # Part 23: P&L - Advertisement/Sales Promotion
+  advertisement_sales_promotion:
+    name: "Advertisement/Sales Promotion ITC and RCM"
+    part: "Audited Financials Statement (Impact)"
+    sub_part: "Advertisement/sales promotion"
+    description: "ITC eligibility and RCM on sponsorship services"
+    verification_points:
+      - "ITC eligibility on Sales promotion"
+      - "Check for RCM on Sponsorship service - in case such service is provided by non body corporate then it will continue to be taxed under RCM"
+    keywords: ["advertisement", "sales promotion", "ITC eligibility", "sponsorship", "RCM", "non body corporate"]
+    verification_prompt: |
+      Analyze:
+      1. Advertisement and sales promotion expenses
+      2. ITC eligibility for sales promotion
+      3. RCM applicability for sponsorship services from non-body corporate
+      Provide specific references and calculations.
+
+  # Parts 24-36: No Impact Items
+  reserve_surplus:
+    name: "Reserve & Surplus"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Reserve & Surplus"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["reserve", "surplus"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  deferred_tax:
+    name: "Deferred Tax"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Deferred Tax"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["deferred tax"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  loan_advances:
+    name: "Loan & Advances (Assets)"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Loan & Advances (Assets)"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["loan", "advances", "assets"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  provision_expenses:
+    name: "Provision against Expenses"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Provision against expenses"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["provision", "expenses"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  statutory_dues:
+    name: "Other Statutory Dues Payable"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Other statutory dues payable"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["statutory dues", "payable"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  cash_bank:
+    name: "Cash/Bank Balances"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Cash / Bank balances"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["cash", "bank", "balances"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  interest_income:
+    name: "Interest Income (Borrowings)"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Interest income (borrowings)"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["interest income", "borrowings"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  bad_debts:
+    name: "Bad Debts Written Off/Back"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Bad detbs written off /back"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["bad debts", "written off"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  employee_benefits_no_impact:
+    name: "Employee Benefits (No Impact)"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Employee benefits (e.g. Salary/gratuity/perquisites)"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["employee benefits", "salary", "gratuity", "perquisites"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  finance_costs:
+    name: "Finance Costs"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Finance costs"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["finance costs"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  depreciation_amortization:
+    name: "Depreciation/Amortization"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Depreciation / Amortization"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["depreciation", "amortization"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  forex_fluctuations:
+    name: "Forex Fluctuations"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Forex fluctuations"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["forex", "fluctuations"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  eps:
+    name: "Earnings Per Share"
+    part: "Audited Financials Statement (No Impact)"
+    sub_part: "Earning per share"
+    description: "No GST impact"
+    verification_points:
+      - "No impact"
+    keywords: ["earnings per share", "EPS"]
+    verification_prompt: "No GST compliance verification required for this item."
+
+  # Part 37: Other Expenses - Car Parking Charges
+  car_parking_charges:
+    name: "Car Parking Charges"
+    part: "Other expenses"
+    sub_part: "Car Parking Charges"
+    description: "Verification of car parking as staff welfare vs perquisite"
+    verification_points:
+      - "Whether it is a common benefit of employees for such car parking and is in the nature of staff welfare and not a perquisite in the hands of employees?"
+      - "Whether there is a demarketed car parking space to accommodate parking for employees. To be substantiated by way of an agreement entered by the company with building owner/service provider"
+    keywords: ["car parking", "staff welfare", "perquisite", "employees", "agreement"]
+    verification_prompt: |
+      Verify:
+      1. Car parking charges nature and purpose
+      2. Whether it constitutes staff welfare or perquisite
+      3. Demarcated parking space availability
+      4. Agreement with building owner/service provider
+      Provide specific references and documentation requirements.
+
+  # Part 38: Other Expenses - Gardening Charges
+  gardening_charges:
+    name: "Gardening Charges"
+    part: "Other expenses"
+    sub_part: "Gardening Charges"
+    description: "Verification of gardening charges as CSR activity"
+    verification_points:
+      - "Whether the employer incurs cost in maintaining factory premises in an eco-friendly manner as a part of CSR activity"
+    keywords: ["gardening", "factory premises", "eco-friendly", "CSR"]
+    verification_prompt: |
+      Check for:
+      1. Gardening charges and their purpose
+      2. Factory premises maintenance
+      3. Eco-friendly practices
+      4. CSR activity classification
+      Provide specific references and documentation requirements. 
